@@ -1,0 +1,22 @@
+PATH
+  remote: .
+  specs:
+    buy_low_sell_high (0.1.0)
+      require_all
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    rake (12.3.3)
+    require_all (3.0.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  buy_low_sell_high!
+  rake (~> 12.0)
+  require_all
+
+BUNDLED WITH
+   2.1.4
