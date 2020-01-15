@@ -1,3 +1,5 @@
+require 'pry'
+
 class DatasetGenerator
     def self.generate(file_data)
         datasets_amt = file_data[0].to_i # Indicates number of sets (useable for tests)
@@ -9,7 +11,7 @@ class DatasetGenerator
         # Find first dataset's denoms and prices--this is repeatable and also lets me know how many 
         # rows of data are in each set--what index to start the process on again.
         datasets_amt.times do
-            @item = Dataset.new
+            @dataset = Dataset.new
 
             denoms = file_data[start_index].split(" ").first.to_i
             prices = file_data[start_index].split(" ").last.to_i
@@ -30,13 +32,14 @@ class DatasetGenerator
                     end
                 end
 
-                @item.prices << row_end_price
+                @dataset.prices << row_end_price
                 i = i + 1
             end
 
             # advance start index to next dataset (2 rows of qualifying data followed by rows of prices)
             start_index += 2 + prices
         end
-    end
 
+        
+    end
 end

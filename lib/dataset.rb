@@ -24,10 +24,13 @@ class Dataset
     end
 
     def self.display
+        output = ""
         self.all.each_with_index do |dataset, i|
-            puts "Dataset #{i+1}:"
-            puts dataset.max_sale
+            output += "Dataset #{i+1}:\n#{dataset.max_sale}\n"
         end
+
+        puts output
+        output
     end
 
 end
