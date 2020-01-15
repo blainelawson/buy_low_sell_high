@@ -1,5 +1,3 @@
-require 'pry'
-
 class DatasetGenerator
     def self.generate(file_data)
         datasets_amt = file_data[0].to_i # Indicates number of sets (useable for tests)
@@ -36,10 +34,7 @@ class DatasetGenerator
                 i = i + 1
             end
 
-            # advance start index to next dataset (2 rows of qualifying data followed by rows of prices)
             start_index += 2 + prices
         end
-
-        
     end
 end
