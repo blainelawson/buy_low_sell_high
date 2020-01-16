@@ -29,6 +29,8 @@ class Dataset
             output += "Dataset #{i+1}:\n#{dataset.max_sale}\n"
         end
 
+        puts output
+
         output
     end
 

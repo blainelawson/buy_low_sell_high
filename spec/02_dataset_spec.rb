@@ -1,8 +1,8 @@
 require_relative '../config/environment'
 require_relative 'spec_helper'
 
-file_path = '../db/input/currency_sample.in.txt'
-file_path2 = '../db/input/test2.in.txt'
+file_path = './db/input/currency_sample.in.txt'
+file_path2 = './db/input/test2.in.txt'
 file_data1 = File.read(file_path).split("\r\n")
 file_data2 = File.read(file_path2).split("\r\n")
 
@@ -21,7 +21,7 @@ describe "dataset class" do
         @dataset5 = Dataset.all[4]
     end
     
-    it "has appropriate set sizes" do
+    it "has appropriate number of prices per dataset" do
         expect(@dataset1.prices.length).to eq(2)
         expect(@dataset2.prices.length).to eq(3)
         expect(@dataset3.prices.length).to eq(4)
