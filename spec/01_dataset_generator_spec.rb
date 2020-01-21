@@ -3,8 +3,10 @@ require_relative 'spec_helper'
 
 file_path = './db/input/currency_sample.in.txt'
 file_path2 = './db/input/test2.in.txt'
-file_data = File.read(file_path).split("\r\n")
-file_data2 = File.read(file_path2).split("\r\n")
+file_data = File.read(file_path).split("\n")
+file_data.map! {|e| e.chomp }
+file_data2 = File.read(file_path2).split("\n")
+file_data2.map! {|e| e.chomp }
 
 
 describe "dataset_generator" do

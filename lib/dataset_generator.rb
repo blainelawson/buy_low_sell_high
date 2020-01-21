@@ -1,3 +1,4 @@
+require 'pry'
 class DatasetGenerator
     def self.generate(file_data)
         datasets_amt = file_data[0].to_i # Indicates number of sets (useable for tests)
@@ -9,10 +10,10 @@ class DatasetGenerator
         # rows of data are in each set--what index to start the process on again.
         datasets_amt.times do
             @dataset = Dataset.new
-     
+    #  binding.pry
             denoms = file_data[start_index].split(" ").first.to_i
             prices = file_data[start_index].split(" ").last.to_i
-
+# binding.pry
             currency_multipliers = file_data[start_index + 1].split(" ").map {|e| e.to_i}
             row_end_price = 0
             i=0
@@ -21,7 +22,7 @@ class DatasetGenerator
                 row = file_data[start_index + 2 + i].split(" ").map {|e| e.to_i}
 
                 #convert prices 
-                row_end_price = row.map.with_index do |currency, index|
+                row.map!.with_index do |currency, index|
                     if index >= currency_multipliers.length
                         currency
                     else
@@ -29,7 +30,7 @@ class DatasetGenerator
                     end
                 end
 
-                @dataset.prices << row_end_price
+                @dataset.prices << row
                 i = i + 1
             end
 
